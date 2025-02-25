@@ -34,7 +34,6 @@
             transform: scale(1.05);
         }
         .modal {
-            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -45,12 +44,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            visibility: hidden; /* Inicialmente oculto */
+            opacity: 0; /* Torna invisível */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
         .modal img {
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
-            display: none;
         }
         .whatsapp-button {
             display: block;
@@ -102,17 +103,23 @@
     
     <script>
         function openModal(src) {
+            var modal = document.getElementById("imageModal");
             var modalImage = document.getElementById("modalImage");
+
             modalImage.src = src;
-            modalImage.style.display = "block";
-            document.getElementById("imageModal").style.display = "flex";
+            modal.style.visibility = "visible";
+            modal.style.opacity = "1";
         }
+
         function closeModal() {
-            var modalImage = document.getElementById("modalImage");
-            modalImage.style.display = "none";
-            document.getElementById("imageModal").style.display = "none";
-            modalImage.src = "";
-        }
+            var modal = document.getElementById("imageModal");
+            modal.style.opacity = "0";
+    
+            setTimeout(() => {
+            modal.style.visibility = "hidden";
+            document.getElementById("modalImage").src = ""; // Limpa a imagem
+        }, 300); // Tempo igual à transição do CSS
+        }   
     </script>
 </body>
 </html>
