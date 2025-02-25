@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria da Campanha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f5f5f5;
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.2s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            display: none;
+        }
+        .whatsapp-button {
+            display: block;
+            width: 200px;
+            padding: 15px;
+            background-color: #25d366;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            transition: background-color 0.3s;
+        }
+        .whatsapp-button:hover {
+            background-color: #1ebc57;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img src="fotos/1.jpeg" alt="Imagem 1" onclick="openModal(this.src)">
+        <img src="fotos/2.jpeg" alt="Imagem 2" onclick="openModal(this.src)">
+        <img src="fotos/3.jpeg" alt="Imagem 3" onclick="openModal(this.src)">
+        <img src="fotos/4.jpeg" alt="Imagem 4" onclick="openModal(this.src)">
+        <img src="fotos/5.jpeg" alt="Imagem 5" onclick="openModal(this.src)">
+        <img src="fotos/6.jpeg" alt="Imagem 6" onclick="openModal(this.src)">
+        <img src="fotos/7.jpeg" alt="Imagem 7" onclick="openModal(this.src)">
+        <img src="fotos/8.jpeg" alt="Imagem 8" onclick="openModal(this.src)">
+        <img src="fotos/9.jpeg" alt="Imagem 9" onclick="openModal(this.src)">
+        <img src="fotos/10.jpeg" alt="Imagem 10" onclick="openModal(this.src)">
+        <img src="fotos/11.jpeg" alt="Imagem 11" onclick="openModal(this.src)">
+        <img src="fotos/12.jpg" alt="Imagem 12" onclick="openModal(this.src)">
+        <img src="fotos/13.jpg" alt="Imagem 13" onclick="openModal(this.src)">
+        <img src="fotos/14.jpeg" alt="Imagem 14" onclick="openModal(this.src)">
+        <img src="fotos/15.jpeg" alt="Imagem 15" onclick="openModal(this.src)">
+        <img src="fotos/16.jpeg" alt="Imagem 16" onclick="openModal(this.src)">
+        <img src="fotos/17.jpeg" alt="Imagem 17" onclick="openModal(this.src)">
+    </div>
+    
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <img id="modalImage" src="" alt="Imagem Expandida">
+    </div>
+    
+    <a href="https://wa.me/558192610120" class="whatsapp-button" target="_blank">MONTE SEU ORÇAMENTO AGORA!</a>
+    
+    <script>
+        function openModal(src) {
+            var modalImage = document.getElementById("modalImage");
+            modalImage.src = src;
+            modalImage.style.display = "block";
+            document.getElementById("imageModal").style.display = "flex";
+        }
+        function closeModal() {
+            var modalImage = document.getElementById("modalImage");
+            modalImage.style.display = "none";
+            document.getElementById("imageModal").style.display = "none";
+            modalImage.src = "";
+        }
+    </script>
+</body>
+</html>
